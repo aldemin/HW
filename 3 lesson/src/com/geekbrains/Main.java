@@ -33,9 +33,7 @@ public class Main {
 
         createAndFillLargeFile(largeFileName);
 
-        new MyWriter("0.txt", 3).readPage(1);
-        new MyWriter("0.txt", 3).readPage(2);
-        new MyWriter("0.txt", 1800).readPage(3);
+        new MyWriter("5.txt", 1800).readPage(3);
     }
 
     private static void readFile(String fileName) {
