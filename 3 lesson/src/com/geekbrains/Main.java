@@ -108,7 +108,7 @@ public class Main {
     }
 
     private static void fillFiles(String[] values) {
-        if (values.length != 5) {
+        if (values.length != NUM_OF_FILES) {
             System.out.println("Неподходящий массив.");
             return;
         }
