@@ -9,27 +9,17 @@ public class Main {
     private static final int NUM_OF_FILES = 5;
     private static final String FILE_EXT = ".txt";
     private static final String[] namesOfFiles = new String[NUM_OF_FILES];
+    private static final String largeFileName = "5.txt";
     private static final String[] poem = {
-            "Гой ты, Русь, моя родная,\n" +
-                    "Хаты - в ризах образа...\n" +
-                    "Не видать конца и края -\n" +
-                    "Только синь сосет глаза.",
-            "Как захожий богомолец,\n" +
-                    "Я смотрю твои поля.\n" +
-                    "А у низеньких околиц\n" +
-                    "Звонно чахнут тополя.",
-            "Пахнет яблоком и медом\n" +
-                    "По церквам твой кроткий Спас.\n" +
-                    "И гудит за корогодом\n" +
-                    "На лугах веселый пляс.",
-            "Побегу по мятой стежке\n" +
-                    "На приволь зеленых лех,\n" +
-                    "Мне навстречу, как сережки,\n" +
-                    "Прозвенит девичий смех.",
-            "Если крикнет рать святая:\n" +
-                    "\"Кинь ты Русь, живи в раю!\"\n" +
-                    "Я скажу: \"Не надо рая,\n" +
-                    "Дайте родину мою\". "
+            "Night, square, apothecary, lantern,\n" +
+                    "Its meaningless and pallid light.\n",
+            "Return a half a lifetime after - \n" +
+                    "All will remain. A scapeless rite.\n",
+            "Then die, then have a new beginning,\n" +
+                    "And all will turn the same as ere:\n",
+            "Night, rippled water's frigid grinning,\n" +
+                    "Apothecary, lantern, square.\n",
+            "Alexander Blok, October 10, 1912\n"
     };
 
 
@@ -41,6 +31,11 @@ public class Main {
 
         readFile(namesOfFiles);
 
+        createAndFillLargeFile(largeFileName);
+
+        new MyWriter("0.txt", 3).readPage(1);
+        new MyWriter("0.txt", 3).readPage(2);
+        new MyWriter("0.txt", 1800).readPage(3);
     }
 
     private static void readFile(String fileName) {
@@ -104,6 +99,26 @@ public class Main {
             }
         } catch (IOException e) {
             System.out.println(String.format("Не удалось создать файл с именем %s.", fileName));
+        }
+    }
+
+    private static void createAndFillLargeFile(String fileName) {
+        File file = new File(fileName);
+        if (!file.exists()) {
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        String str = "1234567891sfdgjhsoidvuhsviuh34fip9hsd9vy340f9jrg";
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))){
+            for (int i = 0; i < 1_000_000; i++) {
+                writer.write(str);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
