@@ -21,7 +21,7 @@ public class Writer {
             Thread firstThread = new Thread(() ->{
                 for (int i = 0; i < 10; i++) {
                     try {
-                        writer.write("First Thread " + i);
+                        writer.write("First Thread " + i + "\n");
                         Thread.sleep(20);
                     } catch (IOException | InterruptedException e) {
                         e.printStackTrace();
@@ -32,7 +32,7 @@ public class Writer {
             Thread secondThread = new Thread(() ->{
                 for (int i = 0; i < 10; i++) {
                     try {
-                        writer.write("Second Thread " + i);
+                        writer.write("Second Thread " + i + "\n");
                         Thread.sleep(20);
                     } catch (IOException | InterruptedException e) {
                         e.printStackTrace();
@@ -43,7 +43,7 @@ public class Writer {
             Thread thirdThread = new Thread(() ->{
                 for (int i = 0; i < 10; i++) {
                     try {
-                        writer.write("Third Thread " + i);
+                        writer.write("Third Thread " + i + "\n");
                         Thread.sleep(20);
                     } catch (IOException | InterruptedException e) {
                         e.printStackTrace();
