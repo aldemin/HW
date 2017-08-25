@@ -22,7 +22,8 @@ public class Writer {
                 for (int i = 0; i < 10; i++) {
                     try {
                         writer.write("First Thread " + i);
-                    } catch (IOException e) {
+                        Thread.sleep(20);
+                    } catch (IOException | InterruptedException e) {
                         e.printStackTrace();
                     }
                 }
@@ -32,7 +33,8 @@ public class Writer {
                 for (int i = 0; i < 10; i++) {
                     try {
                         writer.write("Second Thread " + i);
-                    } catch (IOException e) {
+                        Thread.sleep(20);
+                    } catch (IOException | InterruptedException e) {
                         e.printStackTrace();
                     }
                 }
@@ -42,7 +44,8 @@ public class Writer {
                 for (int i = 0; i < 10; i++) {
                     try {
                         writer.write("Third Thread " + i);
-                    } catch (IOException e) {
+                        Thread.sleep(20);
+                    } catch (IOException | InterruptedException e) {
                         e.printStackTrace();
                     }
                 }
