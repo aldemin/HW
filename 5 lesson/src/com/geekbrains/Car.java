@@ -41,9 +41,8 @@ public class Car implements Runnable {
                 race.getStages().get(i).go(this);
             }
 
-            if (isWin.get()) {
+            if (isWin.getAndSet(false)) {
                 System.out.println(this.name + "!!!!!!WIN!!!!!");
-                isWin.set(false);
             }
             cbFinishRace.await();
         } catch (Exception e) {
