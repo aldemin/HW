@@ -17,11 +17,6 @@ public class OneOrFour {
                 fourExist = true;
             }
         }
-        if (oneExist && fourExist) {
-            return true;
-        } else {
-            return false;
-        }
-
+        return oneExist && fourExist;
     }
 }
