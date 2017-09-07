@@ -70,7 +70,7 @@ public class MyTest {
 
     private void doBefore(MyTest myTest) {
         try {
-            myTest.before.invoke(tClass.newInstance());
+            if (myTest.before != null) myTest.before.invoke(tClass.newInstance());
         } catch (IllegalAccessException | InvocationTargetException | InstantiationException e) {
             e.printStackTrace();
         }
@@ -78,7 +78,7 @@ public class MyTest {
 
     private void doAfter(MyTest myTest) {
         try {
-            myTest.after.invoke(tClass.newInstance());
+            if (myTest.after != null) myTest.after.invoke(tClass.newInstance());
         } catch (IllegalAccessException | InvocationTargetException | InstantiationException e) {
             e.printStackTrace();
         }
